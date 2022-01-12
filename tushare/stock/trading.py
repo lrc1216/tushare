@@ -17,7 +17,12 @@ import numpy as np
 import datetime
 from tushare.stock import cons as ct
 import re
-from pandas.compat import StringIO
+# from pandas.compat import StringIO
+v = pd.__version__ 
+if int(v.split('.')[1])>=25 or int(v.split('.')[0])>0:
+    from io import StringIO
+else:    
+    from pandas.compat import StringIO
 from tushare.util import dateu as du
 from tushare.util.formula import MA
 import os
